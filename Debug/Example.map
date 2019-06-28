@@ -1,0 +1,308 @@
+******************************************************************************
+             TMS320C2000 Linker PC v18.12.2                    
+******************************************************************************
+>> Linked Fri Jun 28 12:52:52 2019
+
+OUTPUT FILE NAME:   <Example.out>
+ENTRY POINT SYMBOL: "_c_int00"  address: 00008104
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+PAGE 0:
+  BEGIN                 00000000   00000002  00000000  00000002  RWIX
+  RAMM0                 00000050   000003b0  0000001a  00000396  RWIX
+  PRAML0                00008000   00000900  0000037a  00000586  RWIX
+  IQTABLES              003fe000   00000b50  00000000  00000b50  RWIX
+  IQTABLES2             003feb50   0000008c  00000000  0000008c  RWIX
+  IQTABLES3             003febdc   000000aa  00000000  000000aa  RWIX
+  BOOTROM               003ff27c   00000d44  00000000  00000d44  RWIX
+  RESET                 003fffc0   00000002  00000000  00000002  RWIX
+
+PAGE 1:
+  BOOT_RSVD             00000002   0000004e  00000000  0000004e  RWIX
+  RAMM1                 00000400   00000400  00000300  00000100  RWIX
+  DRAML0                00008900   00000700  00000058  000006a8  RWIX
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.cinit     0    00000050    0000001a     
+                  00000050    0000000e     rts2800_ml.lib : exit.c.obj (.cinit)
+                  0000005e    00000005                    : _lock.c.obj (.cinit:__lock)
+                  00000063    00000005                    : _lock.c.obj (.cinit:__unlock)
+                  00000068    00000002     --HOLE-- [fill = 0]
+
+.text      0    00008000    0000037a     
+                  00008000    00000104     main.obj (.text)
+                  00008104    00000054     rts2800_ml.lib : boot28.asm.obj (.text)
+                  00008158    00000049     driverlib.lib : gpio.obj (.text:_GPIO_setMode)
+                  000081a1    00000034                   : gpio.obj (.text:_GPIO_setDirection)
+                  000081d5    00000034                   : gpio.obj (.text:_GPIO_setPullUp)
+                  00008209    0000002b                   : gpio.obj (.text:_GPIO_setQualification)
+                  00008234    00000029     rts2800_ml.lib : exit.c.obj (.text)
+                  0000825d    00000024                    : cpy_tbl.c.obj (.text)
+                  00008281    0000001d                    : memcpy.c.obj (.text)
+                  0000829e    00000019                    : args_main.c.obj (.text)
+                  000082b7    00000015     driverlib.lib : pll.obj (.text:_PLL_setup)
+                  000082cc    00000013                   : gpio.obj (.text:_GPIO_setHigh)
+                  000082df    00000013                   : gpio.obj (.text:_GPIO_setLow)
+                  000082f2    00000009                   : clk.obj (.text:_CLK_enableSciaClock)
+                  000082fb    00000009                   : sci.obj (.text:_SCI_putDataBlocking)
+                  00008304    00000009     rts2800_ml.lib : _lock.c.obj (.text)
+                  0000830d    00000008     driverlib.lib : sci.obj (.text:_SCI_getDataBlocking)
+                  00008315    00000008                   : wdog.obj (.text:_WDOG_disable)
+                  0000831d    00000007                   : clk.obj (.text:_CLK_init)
+                  00008324    00000007                   : clk.obj (.text:_CLK_setOscSrc)
+                  0000832b    00000007                   : gpio.obj (.text:_GPIO_init)
+                  00008332    00000007                   : pll.obj (.text:_PLL_init)
+                  00008339    00000007                   : pll.obj (.text:_PLL_setDivider)
+                  00008340    00000007                   : sci.obj (.text:_SCI_init)
+                  00008347    00000007                   : wdog.obj (.text:_WDOG_init)
+                  0000834e    00000006                   : pll.obj (.text:_PLL_setMultiplier)
+                  00008354    00000006                   : sci.obj (.text:_SCI_setBaudRate)
+                  0000835a    00000004                   : sci.obj (.text:_SCI_setCharLength)
+                  0000835e    00000004                   : sci.obj (.text:_SCI_setNumStopBits)
+                  00008362    00000003                   : pll.obj (.text:_PLL_getClkStatus)
+                  00008365    00000003                   : pll.obj (.text:_PLL_getLockStatus)
+                  00008368    00000003                   : sci.obj (.text:_SCI_disableParity)
+                  0000836b    00000003                   : sci.obj (.text:_SCI_enable)
+                  0000836e    00000003                   : sci.obj (.text:_SCI_enableRx)
+                  00008371    00000003                   : sci.obj (.text:_SCI_enableTx)
+                  00008374    00000003                   : sci.obj (.text:_SCI_setPriority)
+                  00008377    00000002     rts2800_ml.lib : pre_init.c.obj (.text)
+                  00008379    00000001                    : startup.c.obj (.text)
+
+.pinit     0    00000050    00000000     UNINITIALIZED
+
+.reset     0    003fffc0    00000002     DSECT
+                  003fffc0    00000002     rts2800_ml.lib : boot28.asm.obj (.reset)
+
+.stack     1    00000400    00000300     UNINITIALIZED
+                  00000400    00000300     --HOLE--
+
+.econst    1    00008900    00000044     
+                  00008900    00000044     main.obj (.econst:.string)
+
+.ebss      1    00008944    00000014     UNINITIALIZED
+                  00008944    0000000a     main.obj (.ebss)
+                  0000894e    00000006     rts2800_ml.lib : exit.c.obj (.ebss)
+                  00008954    00000002                    : _lock.c.obj (.ebss:__lock)
+                  00008956    00000002                    : _lock.c.obj (.ebss:__unlock)
+
+MODULE SUMMARY
+
+       Module            code   initialized data   uninitialized data
+       ------            ----   ----------------   ------------------
+    .\
+       main.obj          260    68                 10                
+    +--+-----------------+------+------------------+--------------------+
+       Total:            260    68                 10                
+                                                                     
+    C:/ti/controlSUITE/development_kits/C2000_LaunchPad/f2802x_common/lib/driverlib.lib
+       gpio.obj          265    0                  0                 
+       sci.obj           53     0                  0                 
+       pll.obj           47     0                  0                 
+       clk.obj           23     0                  0                 
+       wdog.obj          15     0                  0                 
+    +--+-----------------+------+------------------+--------------------+
+       Total:            403    0                  0                 
+                                                                     
+    C:\ti\ccs901\ccs\tools\compiler\ti-cgt-c2000_18.12.2.LTS\lib\rts2800_ml.lib
+       boot28.asm.obj    84     0                  0                 
+       exit.c.obj        41     14                 6                 
+       cpy_tbl.c.obj     36     0                  0                 
+       memcpy.c.obj      29     0                  0                 
+       args_main.c.obj   25     0                  0                 
+       _lock.c.obj       9      10                 4                 
+       pre_init.c.obj    2      0                  0                 
+       startup.c.obj     1      0                  0                 
+    +--+-----------------+------+------------------+--------------------+
+       Total:            227    24                 10                
+                                                                     
+       Stack:            0      0                  768               
+    +--+-----------------+------+------------------+--------------------+
+       Grand Total:      890    92                 788               
+
+
+GLOBAL DATA SYMBOLS: SORTED BY DATA PAGE
+
+address     data page           name
+--------    ----------------    ----
+00000400      10 (00000400)     __stack
+
+00008944     225 (00008940)     _myWDog
+00008946     225 (00008940)     _myClk
+00008948     225 (00008940)     _myPll
+0000894a     225 (00008940)     _myGpio
+0000894c     225 (00008940)     _mySci
+0000894e     225 (00008940)     ___TI_enable_exit_profile_output
+00008950     225 (00008940)     ___TI_cleanup_ptr
+00008952     225 (00008940)     ___TI_dtors_ptr
+00008954     225 (00008940)     __lock
+00008956     225 (00008940)     __unlock
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+page  address   name                            
+----  -------   ----                            
+0     00008000  .text                           
+0     00008234  C$$EXIT                         
+0     000082f2  _CLK_enableSciaClock            
+0     0000831d  _CLK_init                       
+0     00008324  _CLK_setOscSrc                  
+0     0000832b  _GPIO_init                      
+0     000081a1  _GPIO_setDirection              
+0     000082cc  _GPIO_setHigh                   
+0     000082df  _GPIO_setLow                    
+0     00008158  _GPIO_setMode                   
+0     000081d5  _GPIO_setPullUp                 
+0     00008209  _GPIO_setQualification          
+0     000080c8  _GeneralSetup                   
+0     00008030  _Loop                           
+0     00008362  _PLL_getClkStatus               
+0     00008365  _PLL_getLockStatus              
+0     00008332  _PLL_init                       
+0     00008339  _PLL_setDivider                 
+0     0000834e  _PLL_setMultiplier              
+0     000082b7  _PLL_setup                      
+0     00008368  _SCI_disableParity              
+0     0000836b  _SCI_enable                     
+0     0000836e  _SCI_enableRx                   
+0     00008371  _SCI_enableTx                   
+0     0000830d  _SCI_getDataBlocking            
+0     00008340  _SCI_init                       
+0     000082fb  _SCI_putDataBlocking            
+0     00008354  _SCI_setBaudRate                
+0     0000835a  _SCI_setCharLength              
+0     0000835e  _SCI_setNumStopBits             
+0     00008374  _SCI_setPriority                
+0     000080f3  _SciMsg                         
+0     0000806d  _SciSetup                       
+0     00008315  _WDOG_disable                   
+0     00008347  _WDOG_init                      
+1     00000700  __STACK_END                     
+abs   00000300  __STACK_SIZE                    
+1     00008950  ___TI_cleanup_ptr               
+1     00008952  ___TI_dtors_ptr                 
+1     0000894e  ___TI_enable_exit_profile_output
+abs   ffffffff  ___TI_pprof_out_hndl            
+abs   ffffffff  ___TI_prof_data_size            
+abs   ffffffff  ___TI_prof_data_start           
+abs   ffffffff  ___binit__                      
+abs   ffffffff  ___c_args__                     
+0     00000050  ___cinit__                      
+0     0000837a  ___etext__                      
+abs   ffffffff  ___pinit__                      
+0     00008000  ___text__                       
+0     0000829e  __args_main                     
+1     00008954  __lock                          
+0     0000830c  __nop                           
+0     00008308  __register_lock                 
+0     00008304  __register_unlock               
+1     00000400  __stack                         
+0     00008379  __system_post_cinit             
+0     00008377  __system_pre_init               
+1     00008956  __unlock                        
+0     00008234  _abort                          
+0     00008104  _c_int00                        
+0     0000825d  _copy_in                        
+0     00008236  _exit                           
+0     00008000  _main                           
+0     00008281  _memcpy                         
+1     00008946  _myClk                          
+1     0000894a  _myGpio                         
+1     00008948  _myPll                          
+1     0000894c  _mySci                          
+1     00008944  _myWDog                         
+abs   ffffffff  binit                           
+0     00000050  cinit                           
+0     0000837a  etext                           
+abs   ffffffff  pinit                           
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+page  address   name                            
+----  -------   ----                            
+0     00000050  ___cinit__                      
+0     00000050  cinit                           
+0     00008000  .text                           
+0     00008000  ___text__                       
+0     00008000  _main                           
+0     00008030  _Loop                           
+0     0000806d  _SciSetup                       
+0     000080c8  _GeneralSetup                   
+0     000080f3  _SciMsg                         
+0     00008104  _c_int00                        
+0     00008158  _GPIO_setMode                   
+0     000081a1  _GPIO_setDirection              
+0     000081d5  _GPIO_setPullUp                 
+0     00008209  _GPIO_setQualification          
+0     00008234  C$$EXIT                         
+0     00008234  _abort                          
+0     00008236  _exit                           
+0     0000825d  _copy_in                        
+0     00008281  _memcpy                         
+0     0000829e  __args_main                     
+0     000082b7  _PLL_setup                      
+0     000082cc  _GPIO_setHigh                   
+0     000082df  _GPIO_setLow                    
+0     000082f2  _CLK_enableSciaClock            
+0     000082fb  _SCI_putDataBlocking            
+0     00008304  __register_unlock               
+0     00008308  __register_lock                 
+0     0000830c  __nop                           
+0     0000830d  _SCI_getDataBlocking            
+0     00008315  _WDOG_disable                   
+0     0000831d  _CLK_init                       
+0     00008324  _CLK_setOscSrc                  
+0     0000832b  _GPIO_init                      
+0     00008332  _PLL_init                       
+0     00008339  _PLL_setDivider                 
+0     00008340  _SCI_init                       
+0     00008347  _WDOG_init                      
+0     0000834e  _PLL_setMultiplier              
+0     00008354  _SCI_setBaudRate                
+0     0000835a  _SCI_setCharLength              
+0     0000835e  _SCI_setNumStopBits             
+0     00008362  _PLL_getClkStatus               
+0     00008365  _PLL_getLockStatus              
+0     00008368  _SCI_disableParity              
+0     0000836b  _SCI_enable                     
+0     0000836e  _SCI_enableRx                   
+0     00008371  _SCI_enableTx                   
+0     00008374  _SCI_setPriority                
+0     00008377  __system_pre_init               
+0     00008379  __system_post_cinit             
+0     0000837a  ___etext__                      
+0     0000837a  etext                           
+1     00000400  __stack                         
+1     00000700  __STACK_END                     
+1     00008944  _myWDog                         
+1     00008946  _myClk                          
+1     00008948  _myPll                          
+1     0000894a  _myGpio                         
+1     0000894c  _mySci                          
+1     0000894e  ___TI_enable_exit_profile_output
+1     00008950  ___TI_cleanup_ptr               
+1     00008952  ___TI_dtors_ptr                 
+1     00008954  __lock                          
+1     00008956  __unlock                        
+abs   00000300  __STACK_SIZE                    
+abs   ffffffff  ___TI_pprof_out_hndl            
+abs   ffffffff  ___TI_prof_data_size            
+abs   ffffffff  ___TI_prof_data_start           
+abs   ffffffff  ___binit__                      
+abs   ffffffff  ___c_args__                     
+abs   ffffffff  ___pinit__                      
+abs   ffffffff  binit                           
+abs   ffffffff  pinit                           
+
+[73 symbols]
