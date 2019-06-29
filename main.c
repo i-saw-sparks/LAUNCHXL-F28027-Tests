@@ -18,6 +18,8 @@ PLL_Handle myPll;
 GPIO_Handle myGpio;
 SCI_Handle mySci;
 
+bool ledState = false;
+
 void GeneralSetup();
 void SciSetup();
 void Loop();
@@ -46,19 +48,28 @@ void Loop(){
            switch (data){
                case '2':
                    GPIO_setHigh(myGpio, GPIO_Number_0);
-                   SciMsg("El LED 0 muere\r\n");
+                   //SciMsg("El LED 0 muere\r\n");
+                   ledState = false;
                    break;
                case '1':
                    GPIO_setLow(myGpio, GPIO_Number_0);
-                   SciMsg("El LED 0 vive\r\n");
+                   //SciMsg("El LED 0 vive\r\n");
+                   ledState = true;
                    break;
                case '4':
                    GPIO_setHigh(myGpio, GPIO_Number_1);
-                   SciMsg("El LED 1 muere\r\n");
+                   //SciMsg("El LED 1 muere\r\n");
                    break;
                case '3':
                    GPIO_setLow(myGpio, GPIO_Number_1);
-                   SciMsg("El LED 1 vive\r\n");
+                   //SciMsg("El LED 1 vive\r\n");
+                   break;
+               case 'c':
+                   if(ledState){
+                       SCI_putDataBlocking(mySci, 'Y');
+                   }else{
+                       SCI_putDataBlocking(mySci, 'N');
+                   }
                    break;
            }
        }
